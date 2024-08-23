@@ -1,0 +1,1 @@
+FROM node:14\n\nWORKDIR /app\n\nCOPY package.json ./\nCOPY package-lock.json ./\n\nRUN npm install\n\nCOPY . ./\n\nRUN npm run build\n\nRUN npm install -g serve\n\nCMD ["serve", "-s", "build", "-l", "3000"]\n\nEXPOSE 3000
